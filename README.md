@@ -1,6 +1,8 @@
 # XCUtils
 
-TODO: Write a gem description
+This is a little helper to resize @2x~ipad artwork to all required sizes using rmagick.
+On top, the output will be formatted to suit XCodes requirements for sprite atlases.
+Images will be resized carefully by first extending images to be dividable by 4 and then generating smaller half and quarter resolutions.
 
 ## Installation
 
@@ -18,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+run
+    xcatlasify
 
 ## Contributing
 
