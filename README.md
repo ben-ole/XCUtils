@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
 run
+
     xcatlasify
 
 ## Contributing
