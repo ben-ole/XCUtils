@@ -3,8 +3,8 @@ require 'RMagick'
 require 'fileutils'
 require 'debugger'
 
-module XCAtlas
-  class XCAtlasResizer < Thor::Group
+module XCUtils
+  class XCUtilsResizer < Thor::Group
     include Thor::Actions
 
     argument :source

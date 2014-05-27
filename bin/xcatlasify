@@ -1,10 +1,10 @@
 #! /usr/bin/env ruby
 
-require "XCAtlas/version"
+require "XCUtils/version"
 require 'rubygems'
 
 require "thor"
-require_relative "../lib/XCAtlas/xcatlas_resize"
+require_relative "../lib/XCUtils/xcutils_resizer"
 
 class XCAtlasify < Thor
 
@@ -17,14 +17,14 @@ class XCAtlasify < Thor
   def resize(src, tgt)
     validate_support
     ARGV.shift
-    XCAtlas::XCAtlasResizer.start
+    XCUtils::XCUtilsResizer.start
   end
 
   desc "sort", "This is a little helper to sort a directory containing normal, @2x, ~ipad, @2x~ipad artwork into 4 atlases."
   def sort
     validate_support
     ARGV.shift
-    XCAtlas::XCAtlasSorter.start
+    XCUtils::XCUtilsSorter.start
   end
 
   private

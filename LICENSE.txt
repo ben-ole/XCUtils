@@ -1,4 +1,4 @@
-Copyright (c) 2014 Benjamin Müller
+Copyright (c) 2014 Benjamin Müller, Manolis Pahlke
 
 MIT License
 

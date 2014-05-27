@@ -2,8 +2,8 @@ require "thor"
 require 'fileutils'
 require 'debugger'
 
-module XCAtlas
-  class XCAtlasSorter < Thor::Group
+module XCUtils
+  class XCUtilsSorter < Thor::Group
     include Thor::Actions
 
     argument :source

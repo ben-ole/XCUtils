@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'XCAtlas/version'
+require 'XCUtils/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "XCAtlas"
-  spec.version       = XCAtlas::VERSION
+  spec.name          = "XCUtils"
+  spec.version       = XCUtils::VERSION
   spec.authors       = ["Benjamin Müller", "Manolis Pahlke"]
   spec.email         = ["benjamin@urbn.de", "manolis@urbn.de"]
   spec.description   = %q{This is a little helper to resize @2x~ipad artwork to all required sizes using rmagick.
@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  spec.files         = ["lib/XCAtlas/version.rb", "lib/XCAtlas/xcatlas_resize.rb", "lib/XCAtlas/xcatlas_sort.rb"]
+  spec.files         = ["lib/XCUtils/version.rb", "lib/XCUtils/xcutils_resizer.rb", "lib/XCUtils/xcutils_sorter.rb"]
   spec.executables   << 'xcatlasify'
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]

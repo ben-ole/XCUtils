@@ -1,4 +1,4 @@
-# XCAtlas
+# XCUtils
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'XCAtlas'
+    gem 'XCUtils'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install XCAtlas
+    $ gem install XCUtils
 
 ## Usage
 
