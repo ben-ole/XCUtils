@@ -1,0 +1,37 @@
+#! /usr/bin/env ruby
+
+require "XCAtlas/version"
+require 'rubygems'
+
+require "thor"
+require_relative "../lib/XCAtlas/xcatlas_resize"
+
+class XCAtlasify < Thor
+
+  desc "resize [src-dir, tgt-dir]", "Resize *.@2x~ipad named images and move em into XCodes atlases."
+  long_desc <<-LONGDESC
+    This is a little helper to resize @2x~ipad artwork to all required sizes using rmagick.
+    \x5On top, the output will be formatted to suit XCodes requirements for sprite atlases.
+    \x5Images will be resized carefully by first extending images to be dividable by 4 and then generating smaller half and quarter resolutions.
+    LONGDESC
+  def resize(src, tgt)
+    validate_support
+    ARGV.shift
+    XCAtlas::XCAtlasResizer.start
+  end
+
+  desc "sort", "This is a little helper to sort a directory containing normal, @2x, ~ipad, @2x~ipad artwork into 4 atlases."
+  def sort
+    validate_support
+    ARGV.shift
+    XCAtlas::XCAtlasSorter.start
+  end
+
+  private
+  def validate_support
+    # check if the action is valid...
+  end
+
+end
+
+XCAtlasify.start
