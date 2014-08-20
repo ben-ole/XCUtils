@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
     \x5On top, the output will be formatted to suit XCodes requirements for sprite atlases.
     \x5Images will be resized carefully by first extending images to be dividable by 4 and then generating smaller half and quarter resolutions.}
   spec.summary       = %q{Resize *.@2x~ipad named images and move em into XCodes atlases.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/elchbenny/XCUtils"
   spec.license       = "MIT"
 
   spec.files         = ["lib/XCUtils/version.rb", "lib/XCUtils/xcutils_resizer.rb", "lib/XCUtils/xcutils_sorter.rb", "lib/XCUtils/xcutils_patcher.rb"]

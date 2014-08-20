@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/XCUtils.svg)](http://badge.fury.io/rb/XCUtils)
+
 # XCUtils
 
 This is a little helper to resize @2x~ipad artwork to all required sizes using rmagick.
