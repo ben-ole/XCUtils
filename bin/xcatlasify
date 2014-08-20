@@ -5,6 +5,7 @@ require 'rubygems'
 
 require "thor"
 require_relative "../lib/XCUtils/xcutils_resizer"
+require_relative "../lib/XCUtils/xcutils_patcher"
 
 class XCAtlasify < Thor
 
@@ -25,6 +26,13 @@ class XCAtlasify < Thor
     validate_support
     ARGV.shift
     XCUtils::XCUtilsSorter.start
+  end
+
+  desc "patch [patch-vrs, base-atlas]", "This patches the current 'resize' result (directory structure) to the latest version"
+  def patch(vrs, base)
+    validate_support
+    ARGV.shift
+    XCUtils::XCUtilsPatcher.start
   end
 
   private

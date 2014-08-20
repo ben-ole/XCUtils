@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  spec.files         = ["lib/XCUtils/version.rb", "lib/XCUtils/xcutils_resizer.rb", "lib/XCUtils/xcutils_sorter.rb"]
+  spec.files         = ["lib/XCUtils/version.rb", "lib/XCUtils/xcutils_resizer.rb", "lib/XCUtils/xcutils_sorter.rb", "lib/XCUtils/xcutils_patcher.rb"]
   spec.executables   << 'xcatlasify'
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
