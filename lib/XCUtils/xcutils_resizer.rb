@@ -42,7 +42,7 @@ module XCUtils
 
           # create ipad retina version
           say_status "create ipad retina version", "#{fn}@2x~ipad", :yellow
-          img.write(File.join(target,"#{name}.atlas","#{fn}@2x–ipad.png"))
+          img.write(File.join(target,"#{name}.atlas","#{fn}@2x~ipad.png"))
 
           # create ipad non retina version
           say_status "create ipad non retina version", "#{fn}~ipad", :yellow
