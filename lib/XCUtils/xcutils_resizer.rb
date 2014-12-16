@@ -22,9 +22,9 @@ module XCUtils
       Dir.foreach(source) do |f|
         next if f == "." || f == ".." || f == ".DS_Store"
 
-        if f.include?("@2x") && f.include?("~ipad")
+        if f.include?("@3x")
 
-          fn = f.gsub("@2x","").gsub("~ipad","")
+          fn = f.gsub("@3x","")
           fn = File.basename(fn,File.extname(fn))
 
           # load image
@@ -39,6 +39,10 @@ module XCUtils
           nHeight = height%4 == 0 ? height : (height + 4 - height%4)
 
           img = img.extent(nWidth, nHeight)
+
+          # create @3x version
+          say_status "create @3x version", "#{fn}@3x", :yellow
+          img.write(File.join(target,"#{name}.atlas","#{fn}@3x.png"))
 
           # create ipad retina version
           say_status "create ipad retina version", "#{fn}@2x~ipad", :yellow
