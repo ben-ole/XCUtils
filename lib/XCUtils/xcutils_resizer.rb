@@ -50,7 +50,7 @@ module XCUtils
 
           # create ipad non retina version
           say_status "create ipad non retina version", "#{fn}~ipad", :yellow
-          img.minify!
+          img = XCUtilsImageHandling.scale_image(img,0.5)
           img.write(File.join(target,"#{name}.atlas","#{fn}~ipad.png"))
 
           # create iphone retina version - identical to ipad non retina version
@@ -59,7 +59,7 @@ module XCUtils
 
           # create iphone non retina version
           say_status "create iphone non retina version", "#{fn}", :yellow
-          img.minify!
+          img = XCUtilsImageHandling.scale_image(img,0.5)
           img.write(File.join(target,"#{name}.atlas","#{fn}.png"))
         end
       end
