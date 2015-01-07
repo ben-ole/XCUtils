@@ -2,6 +2,7 @@ require "thor"
 require 'RMagick'
 require 'fileutils'
 require 'debugger'
+require "XCUtils/xcutils_image_handling"
 
 module XCUtils
   class XCUtilsResizer < Thor::Group
