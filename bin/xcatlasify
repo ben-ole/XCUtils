@@ -6,6 +6,7 @@ require 'rubygems'
 require "thor"
 require_relative "../lib/XCUtils/xcutils_resizer"
 require_relative "../lib/XCUtils/xcutils_patcher"
+require_relative "../lib/XCUtils/xcassets_packer"
 
 class XCAtlasify < Thor
 
@@ -33,6 +34,13 @@ class XCAtlasify < Thor
     validate_support
     ARGV.shift
     XCUtils::XCUtilsPatcher.start
+  end
+
+  desc "xcassets", "This is a little helper to build xcassets from a directory containing normal @2x~ipad artwork."
+  def xcassets(src,tgt)
+    validate_support
+    ARGV.shift
+    XCUtils::XCAssetsPacker.start
   end
 
   private
