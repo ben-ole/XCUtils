@@ -36,12 +36,7 @@ class XCAtlasify < Thor
     XCUtils::XCUtilsPatcher.start
   end
 
-  desc "xcassets", "This is a little helper to build xcassets from a directory containing normal @2x~ipad artwork."
-  def xcassets(src,tgt)
-    validate_support
-    ARGV.shift
-    XCUtils::XCAssetsPacker.start
-  end
+  register(XCUtils::XCAssetsPacker, "xcassets", "xcassets", "This is a little helper to build xcassets from a directory containing normal @2x~ipad artwork.")
 
   private
   def validate_support
