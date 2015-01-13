@@ -2,10 +2,13 @@ require "thor"
 require 'fileutils'
 require 'debugger'
 require 'json'
+require 'parseconfig'
 
 module XCUtils
   class XCAssetsPacker < Thor::Group
     include Thor::Actions
+
+    @options_merge = {}
 
     argument :source
     argument :target
@@ -15,6 +18,23 @@ module XCUtils
     class_options :scale_iphone_3x => 1.0
     class_options :scale_ipad_1x   => 0.5
     class_options :scale_ipad_2x   => 1.0
+
+    def check_configuration_file
+      config_path = File.join(source,".xcutils-config")
+      if File.exists?(config_path)
+        original_options = options
+        say "found configuration file", nil
+        defaults = ParseConfig.new(config_path).params || {}
+        defaults = defaults.map{ |key,value| {key => value.to_f} }.reduce(:merge)
+        @options_merge = original_options.merge( defaults )
+      end
+
+      say_status "iphone 1x scale", @options_merge[:scale_iphone_1x], :blue
+      say_status "iphone 2x scale", @options_merge[:scale_iphone_2x], :blue
+      say_status "iphone 3x scale", @options_merge[:scale_iphone_3x], :blue
+      say_status "ipad 1x scale", @options_merge[:scale_ipad_1x], :blue
+      say_status "ipad 2x scale", @options_merge[:scale_ipad_2x], :blue
+    end
 
     def create_output_directory
       say_status "create_output_directory", nil
@@ -26,7 +46,7 @@ module XCUtils
 
       # each source file
       Dir.foreach(source) do |f|
-        next if f == "." || f == ".." || f == ".DS_Store"
+        next if f == "." || f == ".." || f == ".DS_Store" || f == ".xcutils-config"
 
         fn = f.gsub("@3x","").gsub("~ipad","").gsub("@2x","") # remove extensions
         fn = File.basename(fn,File.extname(fn))
@@ -42,31 +62,31 @@ module XCUtils
 
         # create @3x version
         say_status "create @3x version", "#{fn}@3x", :yellow
-        img_3x = XCUtilsImageHandling.scale_image(img,options[:scale_iphone_3x])
+        img_3x = XCUtilsImageHandling.scale_image(img,@options_merge[:scale_iphone_3x])
         img_3x.write(File.join(imageset_folder,"#{fn}@3x.png"))
         content_iphone_3x = {"idiom" => "iphone", "scale" => "3x", "filename" => "#{fn}@3x.png"}
 
         # create ipad retina version
         say_status "create ipad retina version", "#{fn}@2x~ipad", :yellow
-        img_ipad_2x = XCUtilsImageHandling.scale_image(img,options[:scale_ipad_2x])
+        img_ipad_2x = XCUtilsImageHandling.scale_image(img,@options_merge[:scale_ipad_2x])
         img_ipad_2x.write(File.join(imageset_folder,"#{fn}@2x~ipad.png"))
         content_ipad_2x = {"idiom" => "ipad", "scale" => "2x", "filename" => "#{fn}@2x~ipad.png"}
 
         # create ipad non retina version
         say_status "create ipad non retina version", "#{fn}~ipad", :yellow
-        img_ipad_1x = XCUtilsImageHandling.scale_image(img,options[:scale_ipad_1x])
+        img_ipad_1x = XCUtilsImageHandling.scale_image(img,@options_merge[:scale_ipad_1x])
         img_ipad_1x.write(File.join(imageset_folder,"#{fn}~ipad.png"))
         content_ipad = {"idiom" => "ipad", "scale" => "1x", "filename" => "#{fn}~ipad.png"}
 
         # create iphone retina version - identical to ipad non retina version
         say_status "create iphone retina version - identical to ipad non retina version", "#{fn}@2x", :yellow
-        img_iphone_2x = XCUtilsImageHandling.scale_image(img,options[:scale_iphone_2x])
+        img_iphone_2x = XCUtilsImageHandling.scale_image(img,@options_merge[:scale_iphone_2x])
         img_iphone_2x.write(File.join(imageset_folder,"#{fn}@2x.png"))
         content_iphone_2x = {"idiom" => "iphone", "scale" => "2x", "filename" => "#{fn}@2x.png"}
 
         # create iphone non retina version
         say_status "create iphone non retina version", "#{fn}", :yellow
-        img_iphone_1x = XCUtilsImageHandling.scale_image(img,options[:scale_iphone_1x])
+        img_iphone_1x = XCUtilsImageHandling.scale_image(img,@options_merge[:scale_iphone_1x])
         img_iphone_1x.write(File.join(imageset_folder,"#{fn}.png"))
         content_iphone = {"idiom" => "iphone", "scale" => "1x", "filename" => "#{fn}.png"}
 

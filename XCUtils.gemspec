@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "thor"
   spec.add_development_dependency "rmagick", "~> 2.13.2"
   spec.add_development_dependency "fileutils"
+  spec.add_development_dependency "parseconfig"
 
   spec.add_development_dependency "debugger"
 end
