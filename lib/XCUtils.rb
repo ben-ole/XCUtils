@@ -2,9 +2,8 @@ require "XCUtils/version"
 require 'rubygems'
 require 'bundler/setup'
 require "thor"
-require "XCUtils/xcutils_resizer"
-require "XCUtils/xcutils_patcher"
-require "XCUtils/xcassets_packer"
+require "XCUtils/xcutils_sorter"
+require "XCUtils/xcutils_resize"
 
 module XCUtils
 

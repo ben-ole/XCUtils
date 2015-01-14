@@ -1,0 +1,17 @@
+#! /usr/bin/env ruby
+
+require "XCUtils/version"
+require 'rubygems'
+
+require "thor"
+require_relative "../lib/XCUtils/xcutils_resize"
+require_relative "../lib/XCUtils/xcutils_sorter"
+
+class XCUtil < Thor
+
+  register(XCUtils::XCUtilsSorter, "sort", "sort", "sort directory of all sizes artwork into separate image atlases per size")
+  register(XCUtils::XCUtilsResize, "resize", "resize", "resize single image or directory to all available sizes and pack into xcassets folder")
+
+end
+
+XCUtil.start

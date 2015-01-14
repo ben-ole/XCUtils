@@ -26,7 +26,7 @@ module XCUtils
 
       # move files
       Dir.foreach(source) do |f|
-        next if f == "." || f == ".." || f == ".DS_Store"
+        next if f == "." || f == ".." || f == ".DS_Store" || f == ".xcutils-config"
 
         p fn = f
 

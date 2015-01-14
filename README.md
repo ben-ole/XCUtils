@@ -2,9 +2,9 @@
 
 # XCUtils
 
-This is a little helper to resize @2x~ipad artwork to all required sizes using rmagick.
-On top, the output will be formatted to suit XCodes requirements for sprite atlases.
-Images will be resized carefully by first extending images to be dividable by 4 and then generating smaller half and quarter resolutions.
+This is a little helper to resize @2x~ipad artwork to all required sizes using rmagick and assign names by xcode convention like @2x, ~ipad etc.
+On top, the output will be formatted to suit XCodes requirements for sprite atlases or xcassets.
+Images will be resized carefully by using the 'HammingFilter'.
 
 ## Installation
 
@@ -24,7 +24,24 @@ Or install it yourself as:
 
 run
 
-    xcatlasify
+    xcutils help [COMMAND]  # Describe available commands or one specific command
+    xcutils xcresize        # Resize single image or directory to all available sizes and optionally pack in xcassets or xcatlas folder
+    xcutils xcsort          # sort directory of all sizes artwork into separate image atlases per size
+
+## Configuration
+
+To ease batch tasks, there is the possibility to add a ```.xcutils-config``` into your source directory providing where you can override the default scale factors:
+
+    scale_iphone_1x       = 0.25
+    scale_iphone_2x       = 0.5
+    scale_iphone_3x       = 1.0
+    scale_ipad_1x         = 0.5
+    scale_ipad_2x         = 1.0
+
+    create_image_assets   = false
+    create_xcatlas        = false
+    dry_run               = false
+
 
 ## Contributing
 
