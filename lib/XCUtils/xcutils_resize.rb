@@ -30,6 +30,8 @@ module XCUtils
       # check for configuration file
       config_path = File.join(source,".xcutils-config")
 
+      @options_merge = options
+
       if File.exists?(config_path)
         original_options = options
         say "found configuration file", nil

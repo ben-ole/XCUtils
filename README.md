@@ -25,8 +25,8 @@ Or install it yourself as:
 run
 
     xcutils help [COMMAND]  # Describe available commands or one specific command
-    xcutils xcresize        # Resize single image or directory to all available sizes and optionally pack in xcassets or xcatlas folder
-    xcutils xcsort          # sort directory of all sizes artwork into separate image atlases per size
+    xcutils resize          # Resize single image or directory to all available sizes and optionally pack in xcassets or xcatlas folder
+    xcutils sort            # sort directory of all sizes artwork into separate image atlases per size
 
 ## Configuration
 
