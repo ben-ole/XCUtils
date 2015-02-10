@@ -15,17 +15,17 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/elchbenny/XCUtils"
   spec.license       = "MIT"
 
-  spec.files         = ["lib/XCUtils/version.rb", "lib/XCUtils/xcutils_resize.rb", "lib/XCUtils/xcutils_sorter.rb"]
+  spec.files         = ["lib/XCUtils/version.rb", "lib/XCUtils/xcutils_resize.rb", "lib/XCUtils/xcutils_sorter.rb", "lib/XCUtils/xcutils_image.rb"]
   spec.executables   << 'xcutils'
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "thor"
-  spec.add_development_dependency "rmagick", "~> 2.13.2"
-  spec.add_development_dependency "fileutils"
-  spec.add_development_dependency "parseconfig"
+  spec.add_runtime_dependency "bundler", "~> 1.3"
+  spec.add_runtime_dependency "rake"
+  spec.add_runtime_dependency "thor"
+  spec.add_runtime_dependency "rmagick", "~> 2.13.2"
+  spec.add_runtime_dependency "fileutils"
+  spec.add_runtime_dependency "parseconfig"
 
   spec.add_development_dependency "debugger"
 end
