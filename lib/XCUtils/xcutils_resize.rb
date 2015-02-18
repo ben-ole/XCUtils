@@ -1,6 +1,5 @@
 require "thor"
 require 'fileutils'
-require 'debugger'
 require 'json'
 require 'parseconfig'
 require 'RMagick'

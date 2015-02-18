@@ -1,6 +1,5 @@
 require "thor"
 require 'fileutils'
-require 'debugger'
 
 module XCUtils
   class XCUtilsSorter < Thor::Group

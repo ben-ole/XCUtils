@@ -1,5 +1,4 @@
 require 'RMagick'
-require 'debugger'
 
 module XCUtils
 
